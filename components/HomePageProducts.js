@@ -22,7 +22,7 @@ const Products = async () => {
     <div>
       {/* <HomePageTop/> */}
       <section
-        id="section1"
+        id="section2"
         className=" max-w-secreen-xl mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 place-items-center -mt-24 lg:-mt-60 md:-mt-40  "
       >
         {getTenProducts.map(

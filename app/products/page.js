@@ -37,7 +37,7 @@ const Products = async () => {
       </div>
       {/* <HomePageTop/> */}
       <section
-        id="section1"
+        id="section3"
         className=" grid grid-flow-row-dense place-items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3  "
       >
         {products

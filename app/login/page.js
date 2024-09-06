@@ -3,11 +3,10 @@ import { useRouter, redirect } from "next/navigation";
 import { doCredentialLogin, doGoogleLogin } from "../actions";
 import { signIn } from "../auth";
 import { useState } from "react";
-import GoogleIcon from "@mui/icons-material/Google";
 import Divider from "@mui/material/Divider";
-import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import { styled } from "@mui/material/styles";
 import { useSession } from "next-auth/react";
+import { FaGoogle } from "react-icons/fa";
 
 
 const Root = styled("div")(({ theme }) => ({
@@ -58,9 +57,11 @@ const Login = () => {
               type="submit"
               name="action"
               value="google"
-              className="text-gray-500 w-full border p-2 rounded-lg text-md hover:text-blue-500/80 font-semibold "
+              className="group flex items-center justify-center text-gray-500 w-full border p-2 rounded-lg text-md hover:bg-blue-500/80 font-semibold transition duration-200 hover:text-white"
             >
-              <GoogleIcon className="text-md text-gray-400 mx-2" /> Continue
+              <FaGoogle  className="text-md text-blue-400 mx-2 group-hover:text-white"  />
+              {/* <GoogleIcon/>  */}
+              Continue
               with Google
             </button>
           </div>
@@ -114,7 +115,7 @@ const Login = () => {
               className=" group gap-3 mt-6 w-72 lg:w-96 border rounded-md p-2 bg-gray-100 text-gray-600 hover:bg-blue-400 hover:text-white transition ease-in"
             >
               Continue{" "}
-              <ArrowRightAltIcon className="text-gray-500 mx-1 group-hover:translate-x-1 transition duration-150 group-hover:text-white" />
+              {/* <ArrowRightAltIcon className="text-gray-500 mx-1 group-hover:translate-x-1 transition duration-150 group-hover:text-white" /> */}
             </button>
           </div>
         </form>
