@@ -59,8 +59,8 @@ export default function App() {
       <Snackbar
         autoHideDuration={5000}
         open={open}
-        variant="soft"
-        color="primary"
+        variant="solid"
+        color="danger"
         onClose={(event, reason) => {
           if (reason === "clickaway") {
             return;

@@ -1,11 +1,12 @@
 "use client";
 import { useRouter, redirect } from "next/navigation";
 import { doCredentialLogin, doGoogleLogin } from "../actions";
-import { signIn } from "../auth";
+// import { signIn } from "../auth";
+import { signIn, signOut, useSession } from "next-auth/react";
+
 import { useState } from "react";
 import Divider from "@mui/material/Divider";
 import { styled } from "@mui/material/styles";
-import { useSession } from "next-auth/react";
 import { FaGoogle } from "react-icons/fa";
 
 
@@ -51,12 +52,13 @@ const Login = () => {
         </p>
         <p className="text-gray-500 text-sm">Please Sign in to continue</p>
 
-        <form action={doGoogleLogin}>
-          <div className="w-72 lg:w-80 mt-4 flex items-center justify-center ">
+        {/* <form action={doGoogleLogin}> */}
+          <div  className="w-72 lg:w-80 mt-4 flex items-center justify-center ">
             <button
-              type="submit"
-              name="action"
-              value="google"
+              // type="submit"
+              onClick={() => signIn("google")}
+                            // name="action"
+              // value="google"
               className="group flex items-center justify-center text-gray-500 w-full border p-2 rounded-lg text-md hover:bg-blue-500/80 font-semibold transition duration-200 hover:text-white"
             >
               <FaGoogle  className="text-md text-blue-400 mx-2 group-hover:text-white"  />
@@ -65,7 +67,7 @@ const Login = () => {
               with Google
             </button>
           </div>
-        </form>
+        {/* </form> */}
 
         <Root>
           {" "}

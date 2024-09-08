@@ -19,6 +19,7 @@ function Checkout() {
   const session = useSession();
   const total = useSelector(selectTotal);
 
+
   const createCheckoutSession = async() => {
     try {
       const response = await fetch('/api/checkoutsession',{
@@ -90,12 +91,12 @@ function Checkout() {
               </h1>
 
               <button
+              disabled={session?.status === "unauthenticated" }
               role="link"
               onClick={createCheckoutSession}
-                className={`w-full h-12 mt-6 text-base rounded-sm cursor-pointer p-2 bg-blue-500 hover:bg-blue-600 transition duration-200 rounded-md text-white font-semibold ${
+                className={` ${
                   session?.status === "unauthenticated" &&
-                  "from-gray-300 to-gray-500 border-gray-200 text-gray-300 cursor-not-allowed"
-                }`}
+                  "bg-gray-300 border-gray-200 text-gray-300 cursor-not-allowed hover:bg-gray-400" } w-full h-12 mt-6 text-base rounded-sm cursor-pointer p-2 bg-blue-500 hover:bg-blue-600 transition duration-200 rounded-md text-white font-semibold `}
               >
                 {session?.status === "authenticated"
                   ? "Proceed to Checkout"

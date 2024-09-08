@@ -13,6 +13,8 @@ function BlogPosts({ id, description, category, price, image, title, rating}) {
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
 
+
+
  
 
   const addItemToBasket = () => {
@@ -169,6 +171,8 @@ function BlogPosts({ id, description, category, price, image, title, rating}) {
 
 <Snackbar
         autoHideDuration={5000}
+        
+        size="lg"
         open={open}
         variant="soft"
         color="danger"
@@ -176,7 +180,7 @@ function BlogPosts({ id, description, category, price, image, title, rating}) {
           if (reason === "clickaway") {
             return;
           }
-          setOpen(false);
+          setOpen(false );
         }}
       >
         added to cart

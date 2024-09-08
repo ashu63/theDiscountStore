@@ -1,12 +1,19 @@
 
 import { removeFromBasket, selectItems } from "@/lib/features/basketSlice";
 import { useDispatch, useSelector } from "react-redux";
+import Snackbar from "@mui/joy/Snackbar";
+import { useState } from "react";
+
 
 function CheckoutProduct({id, title, image, description, price }) {
+  const [open, setOpen] = useState(false);
+
 
     const dispatch = useDispatch()
   
     const removeItemFromBasket = () => {
+      setOpen(true)
+
       dispatch(removeFromBasket({id}))
     }
   return (
@@ -101,6 +108,23 @@ function CheckoutProduct({id, title, image, description, price }) {
                 </div>
 
               </div>
+
+              <Snackbar
+        autoHideDuration={5000}
+        
+        // size="lg"
+        open={open}
+        variant="soft"
+        color="danger"
+        onClose={(event, reason) => {
+          if (reason === "clickaway") {
+            return;
+          }
+          setOpen(false );
+        }}
+      >
+        removed from cart
+      </Snackbar>
             
     </div>
   )
