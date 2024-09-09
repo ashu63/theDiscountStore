@@ -31,7 +31,7 @@ function Header() {
   const isSession = session.status === "authenticated" ? navLinks2 : navLinks;
 
   return (
-    <nav className="flex items-center justify-between px-4 sm:px-8 py-4 border-b border-gray-300 shadow-md max-w-screen-xl mx-auto ">
+    <header className="flex items-center justify-between px-4 sm:px-8 py-4 border-b border-gray-300 shadow-md max-w-screen mx-auto ">
       <div className="absolute top-0 left-0 w-full h-60 bg-gradient-to-br from-pink-400/60 to-[#0055D1] rounded-md filter blur-3xl opacity-20 -z-50" />
       <Link
         href="/"
@@ -102,7 +102,7 @@ function Header() {
      
       </div>
 
-    </nav>
+    </header>
   );
 }
 

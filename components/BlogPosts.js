@@ -5,7 +5,11 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import Snackbar from "@mui/joy/Snackbar";
+import Image from "next/image";
 
+
+const MAX_RATING = 5;
+const MIN_RATING = 2;
 
 
 function BlogPosts({ id, description, category, price, image, title, rating}) {
@@ -13,9 +17,9 @@ function BlogPosts({ id, description, category, price, image, title, rating}) {
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
 
-
-
- 
+  const [ratin] = useState(
+    Math.floor(Math.random() * (MAX_RATING - MIN_RATING + 1) + MIN_RATING)
+  );
 
   const addItemToBasket = () => {
     const product = {
@@ -25,7 +29,7 @@ function BlogPosts({ id, description, category, price, image, title, rating}) {
       price,
       image,
       title,
-      rating,
+
     };
 
     dispatch(addToBasket(product));
@@ -38,10 +42,12 @@ function BlogPosts({ id, description, category, price, image, title, rating}) {
   return (
     <div class="group relative m-6 flex flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-lg hover:bg-[#f8f8f8] transition duration-200  ">
       <div className=" group relative mx-3 mt-3 flex justify-center  rounded-xl cursor-pointer">
-        <img
+        <Image
           onClick={() => router.push(`/product/${id}`)}
           className="object-contain h-40"
           src={image}
+          height={200}
+          width={200}
           alt="product image"
           loading="lazy"
         />
@@ -58,66 +64,21 @@ function BlogPosts({ id, description, category, price, image, title, rating}) {
           <div className="flex items-center ">
 
 
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              className="size-4 text-yellow-400"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
-                clip-rule="evenodd"
-              />
-            </svg>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              className="size-4 text-yellow-400"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
-                clip-rule="evenodd"
-              />
-            </svg>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              className="size-4 text-yellow-400"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
-                clip-rule="evenodd"
-              />
-            </svg>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              className="size-4 text-yellow-400"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
-                clip-rule="evenodd"
-              />
-            </svg>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              className="size-4 text-yellow-400"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
-                clip-rule="evenodd"
-              />
-            </svg>
+
+          {Array(ratin)
+        .fill()
+        .map((_, i) => (
+          <svg
+
+            aria-hidden="true"
+            class="h-5 w-5 text-yellow-400"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+          </svg>
+        ))}
 
             <span className="mr-2 ml-3 rounded bg-yellow-200 px-2.5 py-0.5 text-xs font-semibold text-slate-700">
               {/* {rating.rate}  */}

@@ -42,7 +42,7 @@ function Checkout() {
 
 
   return (
-    <main className=" xl:flex max-w-screen-xl mx-auto bg-gray-50 relative p-4">
+    <div className=" xl:flex max-w-screen-xl mx-auto bg-gray-50 relative p-4 min-h-screen">
       <div className="flex-grow m-5 shadow-sm">
         <img
           className="w-screen object-contain"
@@ -59,7 +59,7 @@ function Checkout() {
           </h1>
         </div>
 
-        <div>
+        <div className="">
           {items.map((item, i) => (
             <CheckoutProduct
               key={i}
@@ -106,7 +106,7 @@ function Checkout() {
           </>
         )}
       </div>
-    </main>
+    </div>
   );
 }
 

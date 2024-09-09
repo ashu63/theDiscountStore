@@ -4,7 +4,7 @@ import Link from "next/link"
   
 function Footer() {
   return (
-    <div className=" w-screen text-gray-500 bg-gray-100 h-16 flex justify-around items-center">
+    <footer className=" w-screen text-gray-500 bg-gray-100 h-16 flex justify-around items-center">
         <Link
         href="/"
         className="text-2xl hidden sm:flex items-center justify-center gap-1"
@@ -18,7 +18,7 @@ function Footer() {
       </Link>
         <p>© 2024 | All right reserved</p>
         
-        </div>
+        </footer>
   )
 }
 

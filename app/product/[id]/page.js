@@ -26,14 +26,15 @@ async function getProduct(id) {
   return data;
 }
 
-
 async function BlogPage({ params }) {
   const product = await getProduct(params.id);
+
+ 
 
 
   // console.log(product);
   return (
-    <div className="lg:h-[80vh] ">
+    <div className="min-h-screen">
       <div className=" relative rounded-md  shadow-xl shadow-white-500/50 max-w-[90vw] block m-auto mt-20 mb-12   ">
         <div className="inline-block lg:flex  items-center justify-evenly p-2   ">
           <div className="mt-6 flex items-center justify-center ">
@@ -126,14 +127,11 @@ async function BlogPage({ params }) {
 
          
 
-    {/* <ActionButton product={product}/> */}
-            <div className="mt-6 flex gap-4">
-              {/* <button className="border border-gray-400 w-36 p-2 rounded-sm hover:bg-blue-500 transition-all duration-200 hover:text-white hover:border-none">
+            <div className="mt-6">
+              <button className="border border-gray-400 w-36 p-2 rounded-sm hover:bg-blue-500 transition-all duration-200 hover:text-white hover:border-none">
                 Add to cart
-              </button> */}
-              <button className="w-36 p-2 bg-blue-500 text-white rounded-sm hover:opacity-90  transition-all duration-200">
-                Buy Now
               </button>
+          
             </div>
           </div>
         </div>

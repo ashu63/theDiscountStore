@@ -17,7 +17,7 @@ const Products = async () => {
   // console.log(products)
 
   const getTenProducts = products.slice(0, 9);
-  console.log(getTenProducts)
+  // console.log(getTenProducts)
   return (
     <div>
       {/* <HomePageTop/> */}

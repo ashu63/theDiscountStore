@@ -3,6 +3,7 @@ import { removeFromBasket, selectItems } from "@/lib/features/basketSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Snackbar from "@mui/joy/Snackbar";
 import { useState } from "react";
+import Image from "next/image";
 
 
 function CheckoutProduct({id, title, image, description, price }) {
@@ -17,22 +18,25 @@ function CheckoutProduct({id, title, image, description, price }) {
       dispatch(removeFromBasket({id}))
     }
   return (
-    <div>
+    <div className="hover:scale-105 transition duration-200 ">
           <div
                 key={id}
-                className="flex flex-col lg:flex-row items-center justify-between my-6 bg-white p-8 shadow-lg transition duration-200 cursor-pointer rounded-md text-center lg:text-start"
+                className="flex flex-col lg:flex-row items-center justify-between my-6 bg-white p-8 shadow-lg transition duration-200 cursor-pointer rounded-md text-center lg:text-start "
               >
 
                 <div className=" pr-1">
-                  <img
+                  <Image
+                  height={100}
+                  width={100}
                     className="h-28 w-28 object-contain mb-6"
                     src={image}
                     alt="product image"
                   />
                 </div>
                 <div className="space-y-2">
-                  <h1 className="text-md font-semibold max-w-lg line-clamp-2 ">{title}</h1>
+                  <h1 className="text-sm text-gray-600 font-semibold max-w-md line-clamp-2 ">{title}</h1>
                   <div className="flex items-center justify-center lg:justify-start">
+
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
@@ -95,9 +99,9 @@ function CheckoutProduct({id, title, image, description, price }) {
                     </svg>
                   </div>
 
-                  <p className="text-xs  text-slate-700 leading-5 line-clamp-3 max-w-lg">
+                  {/* <p className="text-xs  text-slate-700 leading-5 line-clamp-3 max-w-lg">
                     {description}
-                  </p>
+                  </p> */}
                   <p className="text-lg font-semibold">$ {price}</p>
                 </div>
 

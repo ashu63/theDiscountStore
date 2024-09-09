@@ -61,8 +61,10 @@ export const POST = async (request) => {
         success_url: `https://discountstore.vercel.app/success`,
         cancel_url: `https://discountstore.vercel.app/success`,
       });
+
       
     return NextResponse.json({
+
         url: session.url
     })
 }

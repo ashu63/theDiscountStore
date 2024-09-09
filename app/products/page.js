@@ -27,7 +27,7 @@ const Products = async () => {
 
   // }
   return (
-    <div>
+    <div className="min-h-screen">
       <div className="flex max-w-screen-xl mx-auto my-3 shadow-lg">
         <img
           className="w-screen object-contain"

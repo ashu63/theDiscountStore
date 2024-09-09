@@ -8,11 +8,11 @@ function Typed() {
 
       sequence={[
         // Same substring at the start will only be typed once, initially
-        '  Men clothing',
+        '  Gaming console',
         1000,
-        '  Women clothing',
+        '  Headphones',
         1000,
-        '  Jewelery',
+        '  Mobiles',
         1000,
         '  Electronics',
         1000,

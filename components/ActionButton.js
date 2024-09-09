@@ -3,15 +3,16 @@
 import { addToBasket } from "@/lib/features/basketSlice";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+
 
 const MAX_RATING = 5;
 const MIN_RATING = 2;
 
 function ActionButton() {
 
-  const router = useRouter();
-  const dispatch = useDispatch();
+  // const router = useRouter();
+  // const dispatch = useDispatch();
 
 
   // const addItemToBasket = () => {
@@ -30,14 +31,22 @@ function ActionButton() {
 
 
   return (
-    <div className="mt-6 flex gap-4">
-    <button onClick = {addItemToBasket} className="border border-gray-400 w-36 p-2 rounded-sm hover:bg-blue-500 transition-all duration-200 hover:text-white hover:border-none">
-      Add to cart
-    </button>
-    <button className="w-36 p-2 bg-blue-500 text-white rounded-sm hover:opacity-90  transition-all duration-200">
-      Buy Now
-    </button>
-  </div>
+  //   <div className="mt-6 flex gap-4">
+  //   <button onClick = {addItemToBasket} className="border border-gray-400 w-36 p-2 rounded-sm hover:bg-blue-500 transition-all duration-200 hover:text-white hover:border-none">
+  //     Add to cart
+  //   </button>
+  //   <button className="w-36 p-2 bg-blue-500 text-white rounded-sm hover:opacity-90  transition-all duration-200">
+  //     Buy Now
+  //   </button>
+  // </div>
+  <>
+   <button 
+              className="w-36 p-2 bg-blue-500 text-white rounded-sm hover:opacity-90  transition-all duration-200">
+                Buy Now
+              </button>
+
+
+  </>
   );
 }
 

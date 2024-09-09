@@ -45,7 +45,7 @@ const Login = () => {
     }
   }
   return (
-    <div className="h-[80vh] flex flex-col items-center justify-center bg-gray-50 py-6">
+    <div className="h-[90vh] flex flex-col items-center justify-center bg-gray-50 py-6 ">
       <div className="lg:h-[70vh]  lg:w-[40vw] md:[w-40vw] w-[80vw]  bg-white  rounded-md shadow-lg flex flex-col items-center p-4 pt-8 gap-2 my-6">
         <p className="text-xl font-semibold text-gray-800 tracking-wide">
           Sign into <span className="text-blue-400">Discount</span>  store
