@@ -1,137 +1,146 @@
-
-import { removeFromBasket, selectItems } from "@/lib/features/basketSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Snackbar from "@mui/joy/Snackbar";
+import { useSession } from "next-auth/react";
+
 import { useState } from "react";
 import Image from "next/image";
+import {
+  removeFromBasket,
+  selectTotal,
+  selectItems,
+} from "@/lib/features/basketSlice";
 
-
-function CheckoutProduct({id, title, image, description, price }) {
+function CheckoutProduct({
+  id,
+  title,
+  image,
+  description,
+  price,
+  discount,
+  category,
+  model,
+  color,
+}) {
   const [open, setOpen] = useState(false);
 
+  const items = useSelector(selectItems);
+  const session = useSession();
+  const total = useSelector(selectTotal);
 
-    const dispatch = useDispatch()
-  
-    const removeItemFromBasket = () => {
-      setOpen(true)
+  const dispatch = useDispatch();
 
-      dispatch(removeFromBasket({id}))
-    }
+  const removeItemFromBasket = () => {
+    setOpen(true);
+
+    dispatch(removeFromBasket({ id }));
+  };
+
+  let discountantPrice = (price / 100) * discount;
+  let totalDiscountantPrice = price - discountantPrice;
+
   return (
-    <div className="hover:scale-105 transition duration-200 ">
-          <div
-                key={id}
-                className="flex flex-col lg:flex-row items-center justify-between my-6 bg-white p-8 shadow-lg transition duration-200 cursor-pointer rounded-md text-center lg:text-start "
-              >
+    <div className="">
+      <div class="flow-root p-4">
+        <ul class="my-3">
+          <li class="flex flex-col space-y-3  text-left md:flex-row sm:space-x-5 sm:space-y-0">
+            <div class="shrink-0">
+              <Image
+                height={100}
+                width={100}
+                className="h-28 w-28 max-w-full object-cover rounded-lg"
+                src={image}
+                alt="product image"
+              />
+            </div>
 
-                <div className=" pr-1">
-                  <Image
-                  height={100}
-                  width={100}
-                    className="h-28 w-28 object-contain mb-6"
-                    src={image}
-                    alt="product image"
-                  />
+            <div class="relative flex flex-1 flex-col justify-between">
+              <div class="md:col-gap-5 sm:grid md:grid-cols-2">
+                <div class="pr-8 sm:pr-5">
+                  <p class="text-base font-semibold text-gray-700 line-clamp-1 ">
+                    {title}
+                  </p>
+                  <p class="mx-0 mt-1 mb-0 text-sm text-gray-400">{model}</p>
+                  <p class="mx-0 mt-1 mb-0 text-sm text-gray-400 font-semibold">
+                    color : {color}
+                  </p>
                 </div>
-                <div className="space-y-2">
-                  <h1 className="text-sm text-gray-600 font-semibold max-w-md line-clamp-2 ">{title}</h1>
-                  <div className="flex items-center justify-center lg:justify-start">
 
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      className="size-4 text-yellow-400"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
-                        clip-rule="evenodd"
-                      />
-                    </svg>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      className="size-4 text-yellow-400"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
-                        clip-rule="evenodd"
-                      />
-                    </svg>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      className="size-4 text-yellow-400"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
-                        clip-rule="evenodd"
-                      />
-                    </svg>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      className="size-4 text-yellow-400"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
-                        clip-rule="evenodd"
-                      />
-                    </svg>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      className="size-4 text-yellow-400"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
-                        clip-rule="evenodd"
-                      />
-                    </svg>
+                <div class="mt-4 flex items-end justify-between md:items-start md:justify-end">
+                  <p className="flex shrink-0 w-20 text-base font-semibold text-gray-900 sm:order-2 sm:ml-8 sm:text-right">
+                    {discount ? (
+                      <span className="text-lg">${totalDiscountantPrice}</span>
+                    ) : (
+                      <span className="text-lg ">${price}</span>
+                    )}
+
+                    {discount && (
+                      <span className="text-slate-700 text-sm pl-1 font-semibold line-through">
+                        {" "}
+                        ${price}{" "}
+                      </span>
+                    )}
+                  </p>
+
+                  <div class="md:order-1">
+                    <div class="mx-auto flex h-8 items-stretch text-gray-600">
+                      <button class="flex items-center justify-center rounded-l-md bg-gray-200 px-4 transition hover:bg-black hover:text-white">
+                        -
+                      </button>
+                      <div class="flex w-full items-center justify-center bg-gray-100 px-4 text-xs uppercase transition">
+                        1
+                      </div>
+                      <button class="flex items-center justify-center rounded-r-md bg-gray-200 px-4 transition hover:bg-black hover:text-white">
+                        +
+                      </button>
+                    </div>
                   </div>
-
-                  {/* <p className="text-xs  text-slate-700 leading-5 line-clamp-3 max-w-lg">
-                    {description}
-                  </p> */}
-                  <p className="text-lg font-semibold">$ {price}</p>
                 </div>
-
-                <div>
-                  <button onClick = {removeItemFromBasket} className=" rounded-md bg-gradient-to-b from-blue-300 to-blue-500 border border-gray-200 px-5 py-2.5 text-center text-sm font-medium text-white active:bg-blue-700 focus:outline-none  transition duration-200 my-2 sm:my-0">
-                    Remove from cart{" "}
-                  </button>
-                </div>
-
               </div>
 
-              <Snackbar
-        autoHideDuration={5000}
-        
-        // size="lg"
-        open={open}
-        variant="soft"
-        color="danger"
-        onClose={(event, reason) => {
-          if (reason === "clickaway") {
-            return;
-          }
-          setOpen(false );
-        }}
-      >
-        removed from cart
-      </Snackbar>
-            
+              <div class="absolute top-0 right-0 flex sm:bottom-0 md:top-auto">
+                <button
+                  onClick={removeItemFromBasket}
+                  type="button"
+                  class="flex rounded p-2 text-center text-red-500 transition-all duration-200 ease-in-out focus:shadow hover:text-red-900"
+                >
+                  <svg
+                    class="h-5 w-5"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M6 18L18 6M6 6l12 12"
+                      class=""
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </li>
+        </ul>
+
+        <Snackbar
+          autoHideDuration={5000}
+          open={open}
+          variant="soft"
+          color="danger"
+          onClose={(event, reason) => {
+            if (reason === "clickaway") {
+              return;
+            }
+            setOpen(false);
+          }}
+        >
+          removed from cart
+        </Snackbar>
+      </div>
     </div>
-  )
+  );
 }
 
-export default CheckoutProduct
+export default CheckoutProduct;

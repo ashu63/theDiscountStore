@@ -58,7 +58,7 @@ export const POST = async (request) => {
      const session = await stripe.checkout.sessions.create({
         line_items:stripeProducts,
         mode: 'payment',
-        success_url: `https://discountstore.vercel.app/success`,
+        success_url: `http://localhost:3000/success`,
         cancel_url: `https://discountstore.vercel.app/success`,
       });
 

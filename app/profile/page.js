@@ -7,9 +7,9 @@ import {redirect} from "next/navigation"
 function Profile() {
   const session = useSession();
 
-  if(session.status === "unauthenticated") redirect("/")
+  if(session.status === "unauthenticated") redirect("/login")
   return (
-    <div>
+    <div className="h-screen">
       {session.status === "authenticated" && (
         <Link
           href="https://sawanmehras.web.app/"

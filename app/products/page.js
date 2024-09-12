@@ -11,7 +11,7 @@ const getProducts = async () => {
 
 const Products = async () => {
   const products = await getProducts();
-  // console.log(products)
+  console.log(products)
 
   // const getTenProducts = products.slice(0,10)
   // const getUniqueData = ({ data }) => {
@@ -27,7 +27,7 @@ const Products = async () => {
 
   // }
   return (
-    <div className="min-h-screen">
+    <div className="overflow-x-hidden">
       <div className="flex max-w-screen-xl mx-auto my-3 shadow-lg">
         <img
           className="w-screen object-contain"
@@ -38,11 +38,11 @@ const Products = async () => {
       {/* <HomePageTop/> */}
       <section
         id="section3"
-        className=" grid grid-flow-row-dense place-items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3  "
+        className=" grid  place-items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 z-50 "
       >
         {products
           .slice(0, 6)
-          .map(({ id, description, price,rating, category, image, title }) => {
+          .map(({ id, description, price,rating, category, image, title, discount, popular, model, color }) => {
             return (
               <BlogPosts
                 key={id}
@@ -53,6 +53,10 @@ const Products = async () => {
                 price={price}
                 rating={rating}
                 title={title}
+                discount={discount}
+                popular={popular}
+                model={model}
+                color={color}
               />
             );
           })}
@@ -63,11 +67,11 @@ const Products = async () => {
           alt=""
         />
 
-        <div className="md:col-span-2 text-md">
+        <div className="text-md">
           {products
             .slice(6, 7)
             .map(
-              ({ id, description, price, category, image, rating, title }) => {
+              ({ id, description, price, category, image, rating, title, discount, popular, model, color }) => {
                 return (
                   <BlogPosts
                     key={id}
@@ -78,6 +82,10 @@ const Products = async () => {
                     price={price}
                     rating={rating}
                     title={title}
+                    discount={discount}
+                    popular={popular}
+                    model={model}
+                    color={color}
                   />
                 );
               }
@@ -88,7 +96,7 @@ const Products = async () => {
           {products
             .slice(7,)
             .map(
-              ({ id, description, price, category, image,  title, rating }) => {
+              ({ id, description, price, category, image,  title, rating, discount, popular, model, color }) => {
                 return (
                   <BlogPosts
                     key={id}
@@ -99,6 +107,11 @@ const Products = async () => {
                     price={price}
                     rating={rating}
                     title={title}
+                    discount={discount}
+                    popular={popular}
+                    model={model}
+                    color={color}
+
                   />
                 );
               }

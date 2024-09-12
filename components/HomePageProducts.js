@@ -16,19 +16,19 @@ const Products = async () => {
   const products = await getProducts();
   // console.log(products)
 
-  const getTenProducts = products.slice(0, 9);
+  const getTenProducts = products.slice(0, 11);
   // console.log(getTenProducts)
   return (
     <div>
       {/* <HomePageTop/> */}
       <section
-        id="section2"
-        className=" max-w-secreen-xl mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 place-items-center -mt-24 lg:-mt-60 md:-mt-40  "
+        id="section1"
+        className=" max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 md:grid-cols-2 place-items-center -mt-24 lg:-mt-60 md:-mt-40  "
       >
         {getTenProducts.map(
-          ({ id, description, price, category, image,  title }) => {
+          ({ id, description, price, category, image,  title, popular, discount, model, color }) => {
             return (
-              <div className=" ">
+              <div className=" z-10">
                 <BlogPosts
                   key={id}
                   id={id}
@@ -38,6 +38,10 @@ const Products = async () => {
                   price={price}
                   // rating={rating}
                   title={title}
+                  popular = {popular}
+                  discount={discount}
+                  model={model}
+                  color={color}
                 />{" "}
               </div>
             );

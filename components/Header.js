@@ -32,7 +32,7 @@ function Header() {
 
   return (
     <header className="flex items-center justify-between px-4 sm:px-8 py-4 border-b border-gray-300 shadow-md max-w-screen mx-auto ">
-      <div className="absolute top-0 left-0 w-full h-60 bg-gradient-to-br from-pink-400/60 to-[#0055D1] rounded-md filter blur-3xl opacity-20 -z-50" />
+      <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-br from-pink-400/60 to-[#0055D1] rounded-md filter blur-3xl opacity-20 -z-50" />
       <Link
         href="/"
         className="text-2xl hidden sm:flex items-center justify-center gap-1"
@@ -78,7 +78,7 @@ function Header() {
       <div className="flex items-center justify-center gap-5">
 
       <div onClick = {() => router.push("/checkout")} className="relative flex items-center cursor-pointer p-2 ">
-        <span className="absolute top-0 -right-0.5 bg-yellow-500 h-4 w-4 rounded-full text-center text-xs" >
+        <span className={`${items.length > 0 && "animate-bounce"} absolute top-0 -right-0.5 bg-yellow-500 h-4 w-4 rounded-full text-center text-xs`} >
           {items.length}
         </span>
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">

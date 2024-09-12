@@ -5,3 +5,6 @@
 html{
     scroll-behavior: smooth;
 }
+.MuiSnackbar-anchorOriginTopCenter{
+    top: 10%;
+}

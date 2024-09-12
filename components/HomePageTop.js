@@ -5,7 +5,7 @@ import Typed from "@/components/Typed";
 function HomePageTop() {
   return (
     <div>
-       <section className="p-2 text-center h-[80vh] py-40 flex flex-col justfy-center items-center gap-6 ">
+       <section className="p-2 text-center py-40 flex flex-col justfy-center items-center gap-6 ">
         <p className="text-3xl sm:text-4xl text-center font-mono">
           The <span className="text-blue-500">Discount</span> Store
         </p>
