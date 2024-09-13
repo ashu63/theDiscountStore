@@ -2,7 +2,7 @@ import BlogPosts from "@/components/BlogPosts";
 import axios from "axios";
 
 const getProducts = async () => {
-  const res = await axios.get("https://fakestoreapi.in/api/products?limit=20");
+  const res = await axios.get("https://fakestoreapi.in/api/products?limit=40");
   // const res = await axios.get("https://fakestoreapi.com/products");
 
   const data = res.data.products;

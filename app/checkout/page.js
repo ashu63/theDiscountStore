@@ -150,7 +150,7 @@ function Checkout() {
           </>
         ): (
 
-          <div className="flex flex-col items-center justify-center gap-4 pb-6">
+          <div className="flex flex-col items-center justify-center gap-4">
             <img className=" h-60" src="	https://cdn-icons-png.flaticon.com/512/13637/13637462.png" alt="" />
             <h2 className="text-4xl text-slate-800 font-semibold">Your cart is empty</h2>
             <button onClick = {() => router.push("/")} className="mt-6 bg-blue-700 w-64 p-2 rounded-sm hover:bg-blue-600 transition-all duration-200 text-white hover:border-none">
