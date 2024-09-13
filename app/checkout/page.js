@@ -50,7 +50,7 @@ function Checkout() {
   };
 
   return (
-    <div className=" xl:flex max-w-screen-xl mx-auto relative p-4 min-h-screen">
+    <div className=" xl:flex max-w-screen-xl mx-auto relative p-4 ">
       <div className="flex-grow m-5 shadow-sm">
         <img
           className="w-screen object-contain"
@@ -67,9 +67,9 @@ function Checkout() {
           </h1>
         </div>
 
-        {items.length > 0 && (
+        {items.length > 0  ? (
           <>
-            <section class="min-h-screen py-2 sm:py-4 lg:py-8">
+            <section class=" py-2 sm:py-4 lg:py-8">
               <div class="mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="mx-auto max-w-screen-xl">
                   <div class="bg-white shadow">
@@ -148,10 +148,21 @@ function Checkout() {
               </div>
             </section>
           </>
-        )}
+        ): (
+
+          <div className="flex flex-col items-center justify-center gap-4 pb-6">
+            <img className=" h-60" src="	https://cdn-icons-png.flaticon.com/512/13637/13637462.png" alt="" />
+            <h2 className="text-4xl text-slate-800 font-semibold">Your cart is empty</h2>
+            <button onClick = {() => router.push("/")} className="mt-6 bg-blue-700 w-64 p-2 rounded-sm hover:bg-blue-600 transition-all duration-200 text-white hover:border-none">
+                Continue shopping
+              </button>
+          </div>
+
+        ) }
       </div>
     </div>
   );
 }
 
 export default Checkout;
+
