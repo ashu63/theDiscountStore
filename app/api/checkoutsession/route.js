@@ -47,7 +47,7 @@ export const POST = async (request) => {
           {
             // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
             price: stripeProduct?.default_price,
-            quantity: 1,
+            quantity: product.quantity,
           },
         )
       }

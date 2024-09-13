@@ -8,18 +8,22 @@ import {
   removeFromBasket,
   selectTotal,
   selectItems,
+  increaseQuantity,
+  decreaseQuantity
 } from "@/lib/features/basketSlice";
 
 function CheckoutProduct({
-  id,
-  title,
-  image,
-  description,
-  price,
-  discount,
-  category,
-  model,
-  color,
+  // id,
+  // title,
+  // image,
+  // description,
+  // price,
+  // discount,
+  // category,
+  // model,
+  // color,
+  // quantity
+  item
 }) {
   const [open, setOpen] = useState(false);
 
@@ -32,11 +36,50 @@ function CheckoutProduct({
   const removeItemFromBasket = () => {
     setOpen(true);
 
-    dispatch(removeFromBasket({ id }));
+    dispatch(removeFromBasket(item.id));
   };
 
-  let discountantPrice = (price / 100) * discount;
-  let totalDiscountantPrice = price - discountantPrice;
+  const incQuantity = () => {
+    const product = {
+      id:item.id,
+      description:item.description,
+      category:item.category,
+      price:item.price,
+      image:item.image,
+      title:item.title,
+      discount:item.discount,
+      totalDiscountantPrice,
+      model:item.model,
+      color:item.color,
+      quantity:1
+    };
+    dispatch(
+      increaseQuantity(product)
+    )
+
+  }
+
+  const decQuantity = () => {
+    const product = {
+      id:item.id,
+      description:item.description,
+      category:item.category,
+      price:item.price,
+      image:item.image,
+      title:item.title,
+      discount:item.discount,
+      totalDiscountantPrice,
+      model:item.model,
+      color:item.color,
+      quantity:1
+    };
+    dispatch(
+      decreaseQuantity(product)
+    )
+  }
+
+  let discountantPrice = (item.price / 100) * item.discount;
+  let totalDiscountantPrice = item.price - discountantPrice;
 
   return (
     <div className="">
@@ -48,7 +91,7 @@ function CheckoutProduct({
                 height={100}
                 width={100}
                 className="h-28 w-28 max-w-full object-cover rounded-lg"
-                src={image}
+                src={item.image}
                 alt="product image"
               />
             </div>
@@ -57,39 +100,39 @@ function CheckoutProduct({
               <div class="md:col-gap-5 sm:grid md:grid-cols-2">
                 <div class="pr-8 sm:pr-5">
                   <p class="text-base font-semibold text-gray-700 line-clamp-1 ">
-                    {title}
+                    {item.title}
                   </p>
-                  <p class="mx-0 mt-1 mb-0 text-sm text-gray-400">{model}</p>
+                  <p class="mx-0 mt-1 mb-0 text-sm text-gray-400">{item.model}</p>
                   <p class="mx-0 mt-1 mb-0 text-sm text-gray-400 font-semibold">
-                    color : {color}
+                    color : {item.color}
                   </p>
                 </div>
 
                 <div class="mt-4 flex items-end justify-between md:items-start md:justify-end">
                   <p className="flex shrink-0 w-20 text-base font-semibold text-gray-900 sm:order-2 sm:ml-8 sm:text-right">
-                    {discount ? (
-                      <span className="text-lg">${totalDiscountantPrice}</span>
+                    {item.discount ? (
+                      <span className="text-lg">${Math.round(totalDiscountantPrice * item.quantity)}</span>
                     ) : (
-                      <span className="text-lg ">${price}</span>
+                      <span className="text-lg ">${Math.round(item.price * item.quantity)}</span>
                     )}
 
-                    {discount && (
+                    {/* {item.discount && (
                       <span className="text-slate-700 text-sm pl-1 font-semibold line-through">
                         {" "}
-                        ${price}{" "}
+                        ${item.price}{" "}
                       </span>
-                    )}
+                    )} */}
                   </p>
 
                   <div class="md:order-1">
                     <div class="mx-auto flex h-8 items-stretch text-gray-600">
-                      <button class="flex items-center justify-center rounded-l-md bg-gray-200 px-4 transition hover:bg-black hover:text-white">
+                      <button onClick={decQuantity} class="flex items-center justify-center rounded-l-md bg-gray-200 px-4 transition hover:bg-black hover:text-white">
                         -
                       </button>
                       <div class="flex w-full items-center justify-center bg-gray-100 px-4 text-xs uppercase transition">
-                        1
+                        {item.quantity}
                       </div>
-                      <button class="flex items-center justify-center rounded-r-md bg-gray-200 px-4 transition hover:bg-black hover:text-white">
+                      <button onClick={incQuantity} class="flex items-center justify-center rounded-r-md bg-gray-200 px-4 transition hover:bg-black hover:text-white">
                         +
                       </button>
                     </div>

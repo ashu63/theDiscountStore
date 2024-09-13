@@ -16,11 +16,16 @@ const stripePromise = loadStripe(
   "pk_test_51Pvx2XSAqWOo8E1c5309hXc6CgGqTnXxvrEvSL1agY48cW3PehmZryZKts7Odg5oyYE3BHW1Iydex57EqM5zpbSQ00GxHrFcUv"
 );
 
+
 function Checkout() {
-  const items = useSelector(selectItems);
+  // const items = useSelector(selectItems);
+  const {items} = useSelector((state) => state.basket);
   const session = useSession();
   const total = useSelector(selectTotal);
   const router = useRouter();
+
+  const shipping = total < 40 ? 3 : 6 
+
 
   const createCheckoutSession = async () => {
     if (session.status === "unauthenticated") {
@@ -71,16 +76,16 @@ function Checkout() {
                     <div class="px-4 py-2 sm:px-8 sm:py-4 pb-8">
                       <div className="">
                         {items.map((item, i) => (
-                          <CheckoutProduct
-                            key={i}
-                            id={item.id}
-                            title={item.title}
-                            image={item.image}
-                            description={item.description}
-                            price={item.price}
-                            discount={item.discount}
-                            model={item.model}
-                            color={item.color}
+                          <CheckoutProduct item={item}
+                            // key={i}
+                            // id={item.id}
+                            // title={item.title}
+                            // image={item.image}
+                            // description={item.description}
+                            // price={item.price}
+                            // discount={item.discount}
+                            // model={item.model}
+                            // color={item.color}
                           />
                         ))}
                       </div>
@@ -95,7 +100,7 @@ function Checkout() {
                         <div class="flex items-center justify-between">
                           <p class="text-sm text-gray-400">Shipping</p>
                           <p class="text-lg font-semibold text-gray-600">
-                            $8.00
+                            ${shipping}
                           </p>
                         </div>
                       </div>
@@ -105,7 +110,7 @@ function Checkout() {
                           <span class=" mr-1 text-xs font-normal text-gray-400">
                             USD
                           </span>{" "}
-                          ${Math.round(total + 8)}
+                          ${Math.round(total + shipping)}
                         </p>
                       </div>
 

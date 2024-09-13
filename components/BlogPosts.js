@@ -1,5 +1,5 @@
 "use client";
-import { addToBasket } from "@/lib/features/basketSlice";
+import { addToBasket, increaseQuantity } from "@/lib/features/basketSlice";
 import { StarFillIcon } from "@/svg/Svg";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -46,6 +46,7 @@ function BlogPosts({
       totalDiscountantPrice,
       model,
       color,
+      quantity:1
     };
 
     dispatch(addToBasket(product));

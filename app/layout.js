@@ -3,8 +3,7 @@ import Header from "@/components/Header";
 import AuthProvider from "../components/Authprovider/AuthProvider";
 import "./globals.css";
 import { Providers } from "./providers";
-import StoreProvider from "./StoreProvider"
-
+import StoreProvider from "./StoreProvider";
 
 export const metadata = {
   title: "The Discount Stote",
@@ -15,26 +14,18 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="min-h-screen flex flex-col">
-        <StoreProvider >
-        <Providers>
-        <AuthProvider>
-        <div className="sticky top-0 left-0 w-full bg-white/80 z-50 ">
-          <Header />
-        </div>
-        {/* <div className="flex-1"> */}
-        {children}
+        <StoreProvider>
+          <Providers>
+            <AuthProvider>
+              <div className="sticky top-0 left-0 w-full bg-white/80 z-50 ">
+                <Header />
+              </div>
+              {children}
 
-        {/* </div> */}
-        <div>
-        <Footer/>
-
-        </div>
-
-
-        </AuthProvider>
-        </Providers>
+              <Footer />
+            </AuthProvider>
+          </Providers>
         </StoreProvider>
-
       </body>
     </html>
   );

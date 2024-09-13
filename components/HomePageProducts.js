@@ -8,7 +8,7 @@ const getProducts = async () => {
   // const res = await axios.get("https://fakestoreapi.com/products");
   // const res = await axios.get("https://api.escuelajs.co/api/v1/products");
   const data = res.data.products;
-  
+
   return data;
 };
 
@@ -23,14 +23,24 @@ const Products = async () => {
       {/* <HomePageTop/> */}
       <section
         id="section1"
-        className=" max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 md:grid-cols-2 place-items-center -mt-24 lg:-mt-60 md:-mt-40  "
+        className=" max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 md:grid-cols-2 place-items-center -mt-24 lg:-mt-60 md:-mt-40 z-10  "
       >
         {getTenProducts.map(
-          ({ id, description, price, category, image,  title, popular, discount, model, color }) => {
+          ({
+            id,
+            description,
+            price,
+            category,
+            image,
+            title,
+            popular,
+            discount,
+            model,
+            color,
+          }) => {
             return (
-              <div className=" z-10">
+              <div key={id}>
                 <BlogPosts
-                  key={id}
                   id={id}
                   description={description}
                   category={category}
@@ -38,7 +48,7 @@ const Products = async () => {
                   price={price}
                   // rating={rating}
                   title={title}
-                  popular = {popular}
+                  popular={popular}
                   discount={discount}
                   model={model}
                   color={color}
