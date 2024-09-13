@@ -69,7 +69,7 @@ function Checkout() {
 
         {items.length > 0  ? (
           <>
-            <section class=" py-2 sm:py-4 lg:py-8">
+            <section class="min-h-screen py-2 sm:py-4 lg:py-8">
               <div class="mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="mx-auto max-w-screen-xl">
                   <div class="bg-white shadow">
