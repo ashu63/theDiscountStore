@@ -90,7 +90,7 @@ function Checkout() {
                         ))}
                       </div>
 
-                      <div class="mt-6 border-t border-b py-2">
+                      <div class="mt-6 border-b py-2">
                         <div class="flex items-center justify-between">
                           <p class="text-sm text-gray-400">Subtotal</p>
                           <p class="text-lg font-semibold text-gray-600">

@@ -82,7 +82,7 @@ function CheckoutProduct({
   let totalDiscountantPrice = item.price - discountantPrice;
 
   return (
-    <div className="">
+    <div className="border-b ">
       <div class="flow-root p-4">
         <ul class="my-3">
           <li class="flex flex-col space-y-3  text-left md:flex-row sm:space-x-5 sm:space-y-0">

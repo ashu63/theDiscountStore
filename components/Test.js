@@ -28,7 +28,8 @@ function Test({id, image, category, title, price , description, discount, color,
           title,
           discount,
           color,
-          model
+          model,
+          quantity:1
     
         };
     
