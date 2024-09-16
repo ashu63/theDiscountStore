@@ -12,20 +12,6 @@ const getProducts = async () => {
 const Products = async () => {
   const products = await getProducts();
   console.log(products)
-
-  // const getTenProducts = products.slice(0,10)
-  // const getUniqueData = ({ data }) => {
-  //   let filterPro = products.map((product) => {
-  //     return product.category;
-  //   });
-
-  //   return (filterPro = [...new Set(filterPro)]);
-  // };
-
-  // const categryOnlyData = getUniqueData(products);
-  // console.log(categryOnlyData);
-
-  // }
   return (
     <div className="overflow-x-hidden">
       <div className="flex max-w-screen-xl mx-auto my-3 shadow-lg">

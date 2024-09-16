@@ -1,4 +1,3 @@
-import ActionButton from "@/components/ActionButton";
 import HeartComponent from "@/components/HeartComponent";
 import Test from "@/components/Test";
 import { ShareIcon, StarFillIcon, StarOutlineIcon } from "@/svg/Svg";
@@ -11,7 +10,6 @@ export async function generateStaticParams() {
 
   const data = res.data.products;
 
-  // console.log(data);
 
   return data.map((product) => ({
     key:product.id,
@@ -31,12 +29,9 @@ async function getProduct(id) {
 async function BlogPage({ params }) {
   const product = await getProduct(params.id);
 
- 
 
-
-  // console.log(product);
   return (
-    <div className="min-h-screen">
+    <div className="">
 
       <Test
       id={product.id}

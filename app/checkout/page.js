@@ -52,13 +52,6 @@ function Checkout() {
   return (
     <div className=" xl:flex w-screen mx-auto relative p-4 ">
       <div className="flex-grow m-5 shadow-sm">
-        <img
-          className="w-screen object-contain"
-          src="https://links.papareact.com/ikj"
-          alt="banner"
-          loading="lazy"
-        />
-
         <div className="flex flex-col p-5 space-y-4">
           <h1 className="pb-4 text-3xl border-b">
             {items.length > 0
@@ -69,11 +62,11 @@ function Checkout() {
 
         {items.length > 0  ? (
           <>
-            <section class=" py-2 sm:py-4 lg:py-8">
-              <div class="mx-auto">
-                <div class="mx-auto max-w-screen-xl">
-                  <div class="bg-white shadow">
-                    <div class="px-3 py-2 sm:px-8 sm:py-4 pb-8">
+            <section className=" py-2 sm:py-4 lg:py-8">
+              <div className="mx-auto ">
+                <div className="mx-auto max-w-screen-xl">
+                  <div className="bg-white shadow pb-4">
+                    <div className="px-3 py-2 sm:px-8 sm:py-4 pb-8">
                       <div className="">
                         {items.map((item, i) => (
                           <CheckoutProduct item={item}
@@ -150,7 +143,7 @@ function Checkout() {
           </>
         ): (
 
-          <div className="flex flex-col items-center justify-center gap-4">
+          <div className="flex flex-col items-center justify-center gap-4 py-6">
             <img className=" h-60" src="	https://cdn-icons-png.flaticon.com/512/13637/13637462.png" alt="" />
             <h2 className="text-4xl text-slate-800 font-semibold">Your cart is empty</h2>
             <button onClick = {() => router.push("/")} className="mt-6 bg-blue-700 w-64 p-2 rounded-sm hover:bg-blue-600 transition-all duration-200 text-white hover:border-none">

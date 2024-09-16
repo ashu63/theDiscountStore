@@ -82,11 +82,11 @@ function CheckoutProduct({
   let totalDiscountantPrice = item.price - discountantPrice;
 
   return (
-    <div className="border-b ">
-      <div class="flow-root p-4">
-        <ul class="my-3">
-          <li class="flex flex-col space-y-3  text-left md:flex-row sm:space-x-5 sm:space-y-0">
-            <div class="shrink-0">
+    <div className="border-b">
+      <div className="flow-root p-4">
+        <ul className="my-3 ">
+          <li className="flex flex-col space-y-3  text-left md:flex-row sm:space-x-5 sm:space-y-0">
+            <div className="shrink-0 ">
               <Image
                 height={100}
                 width={100}
@@ -96,43 +96,36 @@ function CheckoutProduct({
               />
             </div>
 
-            <div class="relative flex flex-1 flex-col justify-between">
-              <div class="md:col-gap-5 sm:grid md:grid-cols-2">
-                <div class="pr-8 sm:pr-5">
-                  <p class="text-base font-semibold text-gray-700 line-clamp-1 ">
+            <div className="relative flex flex-1 flex-col justify-between">
+              <div className="md:col-gap-5 sm:grid md:grid-cols-2">
+                <div className="pr-8 sm:pr-5">
+                  <p className="text-base font-semibold text-gray-700 line-clamp-1 ">
                     {item.title}
                   </p>
-                  <p class="mx-0 mt-1 mb-0 text-sm text-gray-400">{item.model}</p>
-                  <p class="mx-0 mt-1 mb-0 text-sm text-gray-400 font-semibold">
+                  <p className="mx-0 mt-1 mb-0 text-sm text-gray-400">{item.model}</p>
+                  <p className="mx-0 mt-1 mb-0 text-sm text-gray-400 font-semibold">
                     color : {item.color}
                   </p>
                 </div>
 
-                <div class="mt-4 flex items-end justify-between md:items-start md:justify-end">
+                <div className="mt-4 flex items-end justify-between md:items-start md:justify-end">
                   <p className="flex shrink-0 w-20 text-base font-semibold text-gray-900 sm:order-2 sm:ml-8 sm:text-right">
                     {item.discount ? (
                       <span className="text-lg">${Math.round(totalDiscountantPrice * item.quantity)}</span>
                     ) : (
                       <span className="text-lg ">${Math.round(item.price * item.quantity)}</span>
                     )}
-
-                    {/* {item.discount && (
-                      <span className="text-slate-700 text-sm pl-1 font-semibold line-through">
-                        {" "}
-                        ${item.price}{" "}
-                      </span>
-                    )} */}
                   </p>
 
-                  <div class="md:order-1">
-                    <div class="mx-auto flex h-8 items-stretch text-gray-600">
-                      <button onClick={decQuantity} class="flex items-center justify-center rounded-l-md bg-gray-200 px-4 transition hover:bg-black hover:text-white">
+                  <div className="md:order-1">
+                    <div className="mx-auto flex h-8 items-stretch text-gray-600">
+                      <button onClick={decQuantity} className="flex items-center justify-center rounded-l-md bg-gray-200 px-4 transition hover:bg-black hover:text-white">
                         -
                       </button>
-                      <div class="flex w-full items-center justify-center bg-gray-100 px-4 text-xs uppercase transition">
+                      <div className="flex w-full items-center justify-center bg-gray-100 px-4 text-xs uppercase transition">
                         {item.quantity}
                       </div>
-                      <button onClick={incQuantity} class="flex items-center justify-center rounded-r-md bg-gray-200 px-4 transition hover:bg-black hover:text-white">
+                      <button onClick={incQuantity} className="flex items-center justify-center rounded-r-md bg-gray-200 px-4 transition hover:bg-black hover:text-white">
                         +
                       </button>
                     </div>
@@ -140,14 +133,14 @@ function CheckoutProduct({
                 </div>
               </div>
 
-              <div class="absolute top-0 right-0 flex sm:bottom-0 md:top-auto">
+              <div className="absolute top-0 right-0 flex sm:bottom-0 md:top-auto">
                 <button
                   onClick={removeItemFromBasket}
                   type="button"
-                  class="flex rounded p-2 text-center text-red-500 transition-all duration-200 ease-in-out focus:shadow hover:text-red-900"
+                  className="flex rounded p-2 text-center text-red-500 transition-all duration-200 ease-in-out focus:shadow hover:text-red-900"
                 >
                   <svg
-                    class="h-5 w-5"
+                    className="h-5 w-5"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
@@ -158,7 +151,7 @@ function CheckoutProduct({
                       stroke-linejoin="round"
                       stroke-width="2"
                       d="M6 18L18 6M6 6l12 12"
-                      class=""
+                      className=""
                     ></path>
                   </svg>
                 </button>

@@ -117,7 +117,6 @@ const Login = () => {
               className=" group gap-3 mt-6 w-80 lg:w-96 border rounded-md p-2 bg-blue-500 text-white hover:bg-blue-400  transition ease-in"
             >
               Continue{" "}
-              {/* <ArrowRightAltIcon className="text-gray-500 mx-1 group-hover:translate-x-1 transition duration-150 group-hover:text-white" /> */}
             </button>
           </div>
         </form>
