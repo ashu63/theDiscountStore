@@ -12,17 +12,18 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className="min-h-screen flex flex-col">
+    <html lang="en" className="h-[100%]">
+      <body className="relative m-0 min-h-[100%] pb-20" >
         <StoreProvider>
           <Providers>
             <AuthProvider>
-              <div className="sticky top-0 left-0 w-full bg-white/80 z-50 ">
+              <div className="sticky top-0 left-0 w-full bg-white z-50 ">
                 <Header />
               </div>
-              {children}
-
-              <Footer />
+              <div className="flex flex-col flex-1 ">{children}</div>
+              <div className="absolute bottom-0">
+                <Footer />
+              </div>
             </AuthProvider>
           </Providers>
         </StoreProvider>

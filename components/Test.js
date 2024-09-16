@@ -61,7 +61,7 @@ function Test({id, image, category, title, price , description, discount, color,
 
               <HeartComponent />
 
-              <ShareIcon />
+              {/* <ShareIcon /> */}
             </div>
             <div className="flex items-center gap-1 mt-2">
             <svg

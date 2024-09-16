@@ -66,8 +66,8 @@ function Header() {
               href={nav.href}
               className={
                 isActive(nav.href)
-                  ? "text-blue-500 font-semibold cursor-pointer hover:text-blue-500 transition-all ml-8 sm:ml-0"
-                  : "text-gray-800 cursor-pointer hover:text-blue-500 transition-all ml-8 sm:ml-0"
+                  ? "text-blue-500 font-semibold cursor-pointer hover:text-blue-500 transition-all ml-5 sm:ml-0"
+                  : "text-gray-800 cursor-pointer hover:text-blue-500 transition-all ml-5 sm:ml-0"
               }
             >
               {nav.name}

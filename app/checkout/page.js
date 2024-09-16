@@ -50,7 +50,7 @@ function Checkout() {
   };
 
   return (
-    <div className=" xl:flex max-w-screen-xl mx-auto relative p-4 ">
+    <div className=" xl:flex w-screen mx-auto relative p-4 ">
       <div className="flex-grow m-5 shadow-sm">
         <img
           className="w-screen object-contain"
@@ -70,10 +70,10 @@ function Checkout() {
         {items.length > 0  ? (
           <>
             <section class=" py-2 sm:py-4 lg:py-8">
-              <div class="mx-auto px-4 sm:px-6 lg:px-8">
+              <div class="mx-auto">
                 <div class="mx-auto max-w-screen-xl">
                   <div class="bg-white shadow">
-                    <div class="px-4 py-2 sm:px-8 sm:py-4 pb-8">
+                    <div class="px-3 py-2 sm:px-8 sm:py-4 pb-8">
                       <div className="">
                         {items.map((item, i) => (
                           <CheckoutProduct item={item}
@@ -121,7 +121,7 @@ function Checkout() {
                           class={` ${
                             session?.status === "unauthenticated" &&
                             "group bg-gray-300 border-gray-200 text-gray-300 hover:bg-gray-400"
-                          } group inline-flex w-full items-center justify-center rounded-md bg-gray-900 px-6 py-4 text-lg font-semibold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-gray-800`}
+                          } group inline-flex w-full items-center justify-center rounded-md bg-gray-900 px-6 py-4 sm:text-lg font-semibold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-gray-800`}
                         >
                           {session?.status === "authenticated"
                             ? "Proceed to Checkout"

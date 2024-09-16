@@ -9,7 +9,7 @@ function Profile() {
 
   if(session.status === "unauthenticated") redirect("/login")
   return (
-    <div className="h-screen">
+    <div className="">
       {session.status === "authenticated" && (
         <Link
           href="https://sawanmehras.web.app/"
@@ -17,13 +17,13 @@ function Profile() {
         >
           <div>
             <img
-              className="rounded-full object-contain h-32"
+              className="rounded-full object-contain h-28"
               src={session?.data?.user?.image}
               alt=""
             />
           </div>
           <div>
-            <p className="text-4xl text-gray-600">
+            <p className="text-3xl sm:text-4xl text-gray-600">
               {session?.data?.user?.name}
             </p>
             <p className="text-gray-700 text-sm mx-1 my-2">

@@ -45,15 +45,15 @@ const Login = () => {
     }
   }
   return (
-    <div className="h-[90vh] flex flex-col items-center justify-center bg-gray-50 py-6 ">
-      <div className="lg:h-[70vh]  lg:w-[40vw] md:[w-40vw] w-[80vw]  bg-white  rounded-md shadow-lg flex flex-col items-center p-4 pt-8 gap-2 my-6">
+    <div className=" flex flex-col items-center justify-center bg-gray-50 py-6 ">
+      <div className="lg:h-[70vh] lg:w-[60vw] md:[w-40vw] w-[90vw]  bg-white  rounded-md shadow-lg flex flex-col items-center p-4 py-8 gap-2 mt-10">
         <p className="text-xl font-semibold text-gray-800 tracking-wide">
           Sign into <span className="text-blue-400">Discount</span>  store
         </p>
         <p className="text-gray-500 text-sm">Please Sign in to continue</p>
 
         {/* <form action={doGoogleLogin}> */}
-          <div  className="w-72 lg:w-80 mt-4 flex items-center justify-center ">
+          <div  className="w-80 lg:w-80 mt-4 flex items-center justify-center ">
             <button
               // type="submit"
               onClick={() => signIn("google")}
@@ -86,7 +86,7 @@ const Login = () => {
               </label>
             </div>
 
-            <div className="w-72 lg:w-96 border rounded-md">
+            <div className="w-80 lg:w-96 border rounded-md">
               {" "}
               <input
                 className="outline-none w-full p-2"
@@ -103,7 +103,7 @@ const Login = () => {
               </label>
             </div>
 
-            <div className="w-72 lg:w-96 border rounded-md">
+            <div className="w-80 lg:w-96 border rounded-md">
               <input
                 className="outline-none w-full p-2"
                 type="password"
@@ -114,7 +114,7 @@ const Login = () => {
           <div className="flex items-center justify-center ">
             <button
               type="submit"
-              className=" group gap-3 mt-6 w-72 lg:w-96 border rounded-md p-2 bg-gray-100 text-gray-600 hover:bg-blue-400 hover:text-white transition ease-in"
+              className=" group gap-3 mt-6 w-80 lg:w-96 border rounded-md p-2 bg-blue-500 text-white hover:bg-blue-400  transition ease-in"
             >
               Continue{" "}
               {/* <ArrowRightAltIcon className="text-gray-500 mx-1 group-hover:translate-x-1 transition duration-150 group-hover:text-white" /> */}
