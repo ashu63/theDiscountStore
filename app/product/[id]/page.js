@@ -1,11 +1,12 @@
 import HeartComponent from "@/components/HeartComponent";
 import Test from "@/components/Test";
+import { BASE_URL } from "@/lib/apiRoutes";
 import { ShareIcon, StarFillIcon, StarOutlineIcon } from "@/svg/Svg";
 import axios from "axios";
 
 // Return a list of `params` to populate the [slug] dynamic segment
 export async function generateStaticParams() {
-  const res = await axios.get("https://fakestoreapi.in/api/products");
+  const res = await axios.get(BASE_URL);
   // const res = await axios.get("https://fakestoreapi.com/products");
 
   const data = res.data.products;
@@ -18,7 +19,7 @@ export async function generateStaticParams() {
 }
 
 async function getProduct(id) {
-  const res = await axios.get(`https://fakestoreapi.in/api/products/${id}`);
+  const res = await axios.get(`${BASE_URL}/${id}`);
   // const res = await axios.get(`https://fakestoreapi.com/products/${id}`);
 
   const data = res.data.product;

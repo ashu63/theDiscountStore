@@ -1,10 +1,11 @@
 import BlogPosts from "@/components/BlogPosts";
+import { BASE_URL } from "@/lib/apiRoutes";
 import { ArrowRight } from "@/svg/Svg";
 import axios from "axios";
 import Link from "next/link";
 
 const getProducts = async () => {
-  const res = await axios.get("https://fakestoreapi.in/api/products");
+  const res = await axios.get(BASE_URL);
   // const res = await axios.get("https://fakestoreapi.com/products");
   // const res = await axios.get("https://api.escuelajs.co/api/v1/products");
   const data = res.data.products;

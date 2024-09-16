@@ -43,10 +43,6 @@ function HomePageTop() {
             />
           </svg>
         </Link>
-
-        {/* <div className="text-center mt-36 lg:mt-56  p-5">
-        <p className="text-3xl font-light sm:text-4xl underline decoration-wavy animate-bounce text-blue-500/70">Here the list of products </p>
-      </div> */}
       </section>
    
     </div>
