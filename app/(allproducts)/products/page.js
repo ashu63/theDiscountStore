@@ -18,7 +18,7 @@ const Products = async () => {
     <div className="overflow-x-hidden">
       <div className="flex max-w-screen-xl mx-auto my-3 shadow-lg">
         <img
-          className="w-screen object-contain"
+          className=" object-contain"
           src="https://m.media-amazon.com/images/G/31/AF/img24/Fashion/AF3.0/PC/Unrec/Banner/Deals_on_1_lakh_styles._CB567809662_.jpg"
           alt=""
         />
@@ -26,7 +26,8 @@ const Products = async () => {
       {/* <HomePageTop/> */}
       <section
         id="section3"
-        className=" grid  place-items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 z-50 "
+        className=" flex flex-wrap items-center justify-center gap-8 z-50 p-1 "
+        // className=" grid  place-items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-6 z-50 "
       >
         {products
           .slice(0, 6)
@@ -49,11 +50,11 @@ const Products = async () => {
             );
           })}
 
-        <img
+        {/* <img
           className="object-contain col-span-full"
           src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG20/Home/2024/HFRevamp/Header3000x700.gif"
           alt=""
-        />
+        /> */}
 
         <div className="text-md">
           {products

@@ -44,6 +44,7 @@ async function BlogPage({ params }) {
       discount={product.discount}
       color={product.color}
       model={product.model}
+      brand={product.brand}
 
 
       />

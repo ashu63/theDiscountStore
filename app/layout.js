@@ -13,7 +13,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="h-[100%]">
-      <body className="relative m-0 min-h-[100%] pb-20" >
+      <body className="relative m-0 min-h-[100%] pb-16 overflow-x-hidden" >
         <StoreProvider>
           <Providers>
             <AuthProvider>

@@ -119,7 +119,7 @@ function CheckoutProduct({
 
                   <div className="md:order-1">
                     <div className="mx-auto flex h-8 items-stretch text-gray-600">
-                      <button onClick={decQuantity} className="flex items-center justify-center rounded-l-md bg-gray-200 px-4 transition hover:bg-black hover:text-white">
+                      <button disabled={item.quantity === 1} onClick={decQuantity} className="flex items-center justify-center rounded-l-md bg-gray-200 px-4 transition hover:bg-black hover:text-white">
                         -
                       </button>
                       <div className="flex w-full items-center justify-center bg-gray-100 px-4 text-xs uppercase transition">

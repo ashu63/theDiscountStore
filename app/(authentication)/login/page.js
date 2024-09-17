@@ -1,6 +1,6 @@
 "use client";
 import { useRouter, redirect } from "next/navigation";
-import { doCredentialLogin, doGoogleLogin } from "../actions";
+import { doCredentialLogin, doGoogleLogin } from "../../actions";
 // import { signIn } from "../auth";
 import { signIn, signOut, useSession } from "next-auth/react";
 
@@ -46,7 +46,7 @@ const Login = () => {
   }
   return (
     <div className=" flex flex-col items-center justify-center bg-gray-50 py-6 ">
-      <div className="lg:h-[70vh] lg:w-[60vw] md:[w-40vw] w-[90vw]  bg-white  rounded-md shadow-lg flex flex-col items-center p-4 py-8 gap-2 mt-10">
+      <div className="h-[80vh] lg:w-[60vw] md:[w-40vw] w-[90vw]  bg-white  rounded-md shadow-lg flex flex-col items-center justify-center p-4 py-8 gap-2 mt-10">
         <p className="text-xl font-semibold text-gray-800 tracking-wide">
           Sign into <span className="text-blue-400">Discount</span>  store
         </p>

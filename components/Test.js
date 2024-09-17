@@ -10,7 +10,7 @@ import { useState } from "react";
 import { addToBasket } from "@/lib/features/basketSlice";
 
 
-function Test({id, image, category, title, price , description, discount, color, model}) {
+function Test({id, image, category, title, price , description, discount, color, model, brand}) {
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
 
@@ -40,8 +40,8 @@ function Test({id, image, category, title, price , description, discount, color,
       };
   return (
     <div>
-         <div className=" relative rounded-md  shadow-xl shadow-white-500/50 max-w-[90vw] block m-auto mt-20 mb-12   ">
-        <div className="inline-block lg:flex  items-center justify-evenly p-2   ">
+         {/* <div className=" relative rounded-md  shadow-xl shadow-white-500/50 max-w-[90vw]  m-auto mt-20 2xl:mt-0 2xl:w-[70vw]">
+        <div className="inline-block lg:flex  items-center justify-evenly p-2 2xl:h-screen  ">
           <div className="mt-6 flex items-center justify-center ">
             <img
               className="w-60 sm:w-80 pb-3 object-contain "
@@ -52,16 +52,15 @@ function Test({id, image, category, title, price , description, discount, color,
 
           <div className=" text-start p-5 ">
             <p className="text-gray-500/70 font-semibold mb-3 text-sm">
-              {category}
+              {brand}
             </p>
             <div className="flex items-center gap-6">
-              <p className="text-xl sm:text-3xl text-gray-700 font-light max-w-screen  lg:max-w-[30vw]">
+              <p className="text-xl sm:text-2xl line-clamp-3 text-gray-700 font-light max-w-screen  lg:max-w-[30vw]">
                 {title}
               </p>
 
               <HeartComponent />
 
-              {/* <ShareIcon /> */}
             </div>
             <div className="flex items-center gap-1 mt-2">
             <svg
@@ -126,7 +125,6 @@ function Test({id, image, category, title, price , description, discount, color,
       </svg>              
             </div>
 
-            {/* <p className="text-gray-600 mt-2">Price : ${price}</p> */}
 
             <p className=" mt-3">
                 {discount ?  <span className="text-lg font-bold text-blue-500">
@@ -136,7 +134,7 @@ function Test({id, image, category, title, price , description, discount, color,
           {discount && <span className="text-slate-700 text-sm pl-1 font-semibold line-through"> ${price} </span>  }  
           </p>
 
-            <p className="text-gray-500 mt-3 max-w-xl leading-6 text-sm ">
+            <p className="text-gray-500 line-clamp-6 mt-3 max-w-xl leading-6 text-sm ">
               {description}
             </p>
 
@@ -168,7 +166,70 @@ function Test({id, image, category, title, price , description, discount, color,
         }}
       >
         added to cart
-      </Snackbar>
+      </Snackbar> */}
+
+
+<section className="text-gray-600 body-font overflow-hidden">
+  <div className="container px-5 py-24 mx-auto">
+    <div className="lg:w-4/5 mx-auto flex items-center justify-evenly flex-wrap">
+      <img alt="ecommerce" className="lg:w-1/2 w-full lg:h-auto h-64 object-contain object-center rounded" src={image}/>
+      <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+        <h2 className="text-sm title-font text-gray-500 tracking-widest">{brand}</h2>
+        <h1 className="text-gray-800 text-xl title-font line-clamp-2 font-medium mb-1">{title}</h1>
+        <div className="flex mb-4">
+          <span className="flex items-center">
+            <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" className="w-4 h-4 text-blue-500" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+            </svg>
+            <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" className="w-4 h-4 text-blue-500" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+            </svg>
+            <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" className="w-4 h-4 text-blue-500" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+            </svg>
+            <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" className="w-4 h-4 text-blue-500" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+            </svg>
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" className="w-4 h-4 text-blue-500" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+            </svg>
+            <span className="text-gray-600 ml-3">4 Reviews</span>
+          </span>
+         
+        </div>
+        <p className="leading-relaxed line-clamp-5 text-sm">{description}</p>
+        <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5">
+          <div className="flex">
+            <span className="mr-3">Color</span>
+            <button className="border-2 border-gray-300 rounded-full w-6 h-6 focus:outline-none"></button>
+            <button className="border-2 border-gray-300 ml-1 bg-gray-700 rounded-full w-6 h-6 focus:outline-none"></button>
+            <button className="border-2 border-gray-300 ml-1 bg-indigo-500 rounded-full w-6 h-6 focus:outline-none"></button>
+          </div>
+         
+        </div>
+        <div className="flex items-center">
+          
+        <p className=" mt-3">
+                {discount ?  <span className="text-lg font-bold text-blue-500">
+                  ${totalDiscountantPrice}
+                </span> : <span className="text-xl font-bold text-blue-500">${price}</span> }
+                
+          {discount && <span className="text-slate-700 text-sm pl-1 font-semibold line-through"> ${price} </span>  }  
+          </p>
+          <button onClick={addItemToBasket} className="flex ml-auto text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 transition rounded">Add to cart</button>
+          <button className="rounded-full w-10 h-10 bg-red-100 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
+          <HeartComponent />
+
+          </button>
+      
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
     </div>
   )
 }

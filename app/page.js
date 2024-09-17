@@ -4,7 +4,7 @@ import Banner from "@/components/Banner";
 
 export default function Home() {
   return (
-    <div className="" style={{scrollBehavior:"smooth"}}  >
+    <div className="overflow-x-hidden" style={{scrollBehavior:"smooth"}}  >
             <HomePageTop/>
             <Banner/>
             <HomePageProducts />

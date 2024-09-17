@@ -1,6 +1,5 @@
 import BlogPosts from "@/components/BlogPosts";
 import { BASE_URL } from "@/lib/apiRoutes";
-import { ArrowRight } from "@/svg/Svg";
 import axios from "axios";
 import Link from "next/link";
 
@@ -15,10 +14,8 @@ const getProducts = async () => {
 
 const Products = async () => {
   const products = await getProducts();
-  // console.log(products)
 
   const getTenProducts = products.slice(0, 11);
-  // console.log(getTenProducts)
   return (
     <div>
       {/* <HomePageTop/> */}

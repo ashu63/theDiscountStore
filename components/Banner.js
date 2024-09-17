@@ -5,14 +5,14 @@ import { Carousel } from 'react-responsive-carousel';
 
 function Banner() {
   return (
-    <div className="max-w-screen-xl mx-auto z-0  ">
+    <div className="max-w-screen-xl mx-auto z-0 overflow-x-hidden ">
          <Carousel
          autoPlay
          infiniteLoop
          showStatus={false}
          showIndicators={false}
          showThumbs={false}
-         interval={4000}
+         interval={3000}
          >
                 <div>
                     <img loading="lazy" src="https://images-eu.ssl-images-amazon.com/images/G/31/OHL_HSS/PC_hero_1500x600-1uberseptunrec._CB564441518_.jpg"/>
